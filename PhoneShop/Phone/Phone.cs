@@ -55,12 +55,12 @@ namespace PhoneShop
       set => simNumber = value; 
     }
 
-    public void Call(uint number)
+    public void Call(uint phoneNumber)
     {
-      if(number == EuEmergencyNumber || number == UsEmergencyNumber)
+      if(phoneNumber == EuEmergencyNumber || phoneNumber == UsEmergencyNumber)
       {
         this.Connect();
-        Console.WriteLine("Emergency call {0}", number);
+        Console.WriteLine("Emergency call {0}", phoneNumber);
         return;
       }
 
@@ -68,7 +68,7 @@ namespace PhoneShop
         throw new Exception("Emergency calls only...");
   
       this.Connect();
-      Console.WriteLine("Call to phone number {0}", number);
+      Console.WriteLine("Call to phone number {0}", phoneNumber);
     }
 
     public void Call(string name)

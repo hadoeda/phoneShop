@@ -31,7 +31,7 @@ namespace PhoneShop
     /// Конструктор.
     /// </summary>
     /// <param name="image">Изображение.</param>
-    public ShotEventArgs(byte [] image)
+    public ShotEventArgs(byte[] image)
     {
       this.image = image;
     }
