@@ -6,15 +6,24 @@ using System.Threading.Tasks;
 
 namespace PhoneShop
 {
-  internal class CamPhone3G : Phone3G
+  /// <summary>
+  /// 3G Телефон с камерой.
+  /// </summary>
+  internal sealed class CamPhone3G : Phone3G
   {
+    #region Поля и свойства
+
     /// <summary>
-    /// Объект камеры
+    /// Камера.
     /// </summary>
     private readonly ICamera camera;
-    
+
+    #endregion
+
+    #region Методы
+
     /// <summary>
-    /// Сделать фото
+    /// Сделать фото.
     /// </summary>
     public void GetPhoto()
     {
@@ -23,19 +32,28 @@ namespace PhoneShop
     }
 
     /// <summary>
-    /// Обработчик события "Снимок сделан"
+    /// Обработчик события "Снимок сделан".
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
+    /// <param name="sender">Отправитель.</param>
+    /// <param name="e">Данные снимка.</param>
     private void ShotCompletedHandler(object sender, ShotEventArgs e)
     {
       Console.WriteLine("Camera shot completed");
     }
 
+    #endregion
+
+    #region Конструкторы
+    
+    /// <summary>
+    /// Конструктор.
+    /// </summary>
     public CamPhone3G()
     {
       this.camera = new Camera();
       this.camera.ShotCompleted += this.ShotCompletedHandler;
     }
+
+    #endregion
   }
 }

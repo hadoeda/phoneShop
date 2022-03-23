@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace PhoneShop
 {
-  internal class Camera : ICamera
+  /// <summary>
+  /// Камера.
+  /// </summary>
+  internal sealed class Camera : ICamera
   {
-    public event EventHandler<ShotEventArgs> ShotCompleted;
+    #region ICamera
 
+    public event EventHandler<ShotEventArgs> ShotCompleted;
+    
     public void Shot()
     {
       ShotCompleted?.Invoke(this, new ShotEventArgs(Array.Empty<byte>()));
     }
+
+    #endregion
   }
 }

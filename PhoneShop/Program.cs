@@ -2,9 +2,17 @@
 
 namespace PhoneShop
 {
-  class Program
+  /// <summary>
+  /// Основной класс приложения.
+  /// </summary>
+  public class Program
   {
-    static void Main(string[] args)
+    #region Методы
+    /// <summary>
+    /// Стандартная точка входа в приложение.
+    /// </summary>
+    /// <param name="args">Аргументы командной строки.</param>
+    public static void Main(string[] args)
     {
       Console.WriteLine("Phones");
       TestPhone(new Phone());
@@ -18,7 +26,11 @@ namespace PhoneShop
       Console.ReadLine();
     }
 
-   static void TestPhone(IPhone phone)
+    /// <summary>
+    /// Тестирование телефона.
+    /// </summary>
+    /// <param name="phone">Телефон.</param>
+    private static void TestPhone(IPhone phone)
     {
       try
       {
@@ -39,5 +51,7 @@ namespace PhoneShop
         Console.WriteLine("Error: {0}", e.Message);
       }
     }
+
+    #endregion
   }
 }

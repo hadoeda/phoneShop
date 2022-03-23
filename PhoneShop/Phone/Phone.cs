@@ -6,25 +6,46 @@ using System.Threading.Tasks;
 
 namespace PhoneShop
 {
+  /// <summary>
+  /// Класс телефон.
+  /// </summary>
   internal class Phone : IPhone
   {
     #region Константы
+
     /// <summary>
-    /// Номер службы спасения в Европе
+    /// Номер службы спасения в Европе.
     /// </summary>
     public const uint EuEmergencyNumber = 112;
     
     /// <summary>
-    /// Номер службы спасения в США
+    /// Номер службы спасения в США.
     /// </summary>
     public const uint UsEmergencyNumber = 911;
+
     #endregion
 
-    #region Поля и свойства
+    #region Поля и свойства  
+    
+    /// <summary>
+    /// Адресная книга.
+    /// </summary>
+    private readonly Dictionary<string, uint> book = new();
+    
+    #endregion
+
+    #region Интерфейс IPhone
+    
+    /// <summary>
+    /// IMEI телефона.
+    /// </summary>
     private readonly string imei;
 
     public string Imei => imei;
 
+    /// <summary>
+    /// Номер сим карты телефона.
+    /// </summary>
     private string simNumber;
 
     public string SimNumber 
@@ -33,11 +54,7 @@ namespace PhoneShop
 
       set => simNumber = value; 
     }
-    
-    private readonly Dictionary<string, uint> book = new();
-    #endregion
 
-    #region Интерфейс IPhone
     public void Call(uint number)
     {
       if(number == EuEmergencyNumber || number == UsEmergencyNumber)
@@ -66,15 +83,21 @@ namespace PhoneShop
     {
       Console.WriteLine("Connect to gsm station...");
     }
+
     #endregion
 
     #region Конструкторы
+
+    /// <summary>
+    /// Конструктор.
+    /// </summary>
     public Phone()
     {
       this.imei = $"some_imei_{Guid.NewGuid()}";
       this.simNumber = $"some_sim_{Guid.NewGuid()}";
       this.book.Add("Jane", 673490);
     }
+    
     #endregion
   }
 }

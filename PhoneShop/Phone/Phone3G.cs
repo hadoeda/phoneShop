@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace PhoneShop
 {
+  /// <summary>
+  /// Телефон с 3G.
+  /// </summary>
   internal class Phone3G : Phone
   {
+    #region Методы
+
     public override void Connect()
     {
       Console.WriteLine("Connect to gsm 3g station...");
     }
+
+    #endregion
   }
 }
