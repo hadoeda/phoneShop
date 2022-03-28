@@ -11,7 +11,7 @@ namespace PhoneShop
   /// </summary>
   internal class Phone3G : Phone
   {
-    #region Методы
+    #region IPhone
 
     public override void Connect()
     {

@@ -17,7 +17,21 @@ namespace PhoneShop
     
     public void Shot()
     {
-      ShotCompleted?.Invoke(this, new ShotEventArgs(Array.Empty<byte>()));
+      OnShotCompleted(new ShotEventArgs(Array.Empty<byte>()));
+    }
+
+    #endregion
+
+    #region Методы
+
+    /// <summary>
+    /// Генерирует событие "Снимок сделан".
+    /// </summary>
+    /// <param name="args">Данные снимка.</param>
+    public void OnShotCompleted(ShotEventArgs args)
+    {
+      if (ShotCompleted != null)
+        ShotCompleted(this, args);
     }
 
     #endregion

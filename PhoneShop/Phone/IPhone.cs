@@ -37,6 +37,19 @@ namespace PhoneShop
     /// </summary>
     /// <param name="phoneNumber">Номер телефона.</param>
     void Call(uint phoneNumber);
+
+    /// <summary>
+    /// Добавить запись в адресную книгу.
+    /// </summary>
+    /// <param name="name">Имя обонентка.</param>
+    /// <param name="phoneNumber">Номер телефона абонента.</param>
+    void AddToBook(string name, uint phoneNumber);
+
+    /// <summary>
+    /// Удалить запись из адресной книги.
+    /// </summary>
+    /// <param name="name">Имя абонента.</param>
+    void RemoveFromBook(string name);
     
     /// <summary>
     /// Подключение к станции.

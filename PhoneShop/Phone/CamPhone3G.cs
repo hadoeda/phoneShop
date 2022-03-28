@@ -31,11 +31,6 @@ namespace PhoneShop
       this.camera.Shot();
     }
 
-    /// <summary>
-    /// Обработчик события "Снимок сделан".
-    /// </summary>
-    /// <param name="sender">Отправитель.</param>
-    /// <param name="e">Данные снимка.</param>
     private void ShotCompletedHandler(object sender, ShotEventArgs e)
     {
       Console.WriteLine("Camera shot completed");

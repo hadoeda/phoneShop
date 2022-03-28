@@ -8,6 +8,7 @@ namespace PhoneShop
   public class Program
   {
     #region Методы
+
     /// <summary>
     /// Стандартная точка входа в приложение.
     /// </summary>
@@ -15,13 +16,20 @@ namespace PhoneShop
     public static void Main(string[] args)
     {
       Console.WriteLine("Phones");
-      TestPhone(new Phone());
+
+      var simplePhone = new Phone();
+      InitPhone(simplePhone);
+      TestPhone(simplePhone);
 
       Console.WriteLine();
-      TestPhone(new Phone3G());
+      var phone3g = new Phone3G();
+      InitPhone(phone3g);
+      TestPhone(phone3g);
 
       Console.WriteLine();
-      TestPhone(new CamPhone3G());
+      var camPhone3G = new CamPhone3G();
+      InitPhone(camPhone3G);
+      TestPhone(camPhone3G);
 
       Console.ReadLine();
     }
@@ -50,6 +58,16 @@ namespace PhoneShop
       {
         Console.WriteLine("Error: {0}", e.Message);
       }
+    }
+
+    /// <summary>
+    /// Инициализация для теста
+    /// </summary>
+    /// <param name="phone">Телефон</param>
+    private static void InitPhone(IPhone phone)
+    {
+      phone.SimNumber = $"some_sim_{Guid.NewGuid()}";
+      phone.AddToBook("Jane", 673490);
     }
 
     #endregion

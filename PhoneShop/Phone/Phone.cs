@@ -25,7 +25,7 @@ namespace PhoneShop
 
     #endregion
 
-    #region Поля и свойства  
+    #region Поля и свойства
     
     /// <summary>
     /// Адресная книга.
@@ -34,26 +34,11 @@ namespace PhoneShop
     
     #endregion
 
-    #region Интерфейс IPhone
-    
-    /// <summary>
-    /// IMEI телефона.
-    /// </summary>
-    private readonly string imei;
+    #region IPhone
 
-    public string Imei => imei;
+    public string Imei { get; }
 
-    /// <summary>
-    /// Номер сим карты телефона.
-    /// </summary>
-    private string simNumber;
-
-    public string SimNumber 
-    { 
-      get => simNumber; 
-
-      set => simNumber = value; 
-    }
+    public string SimNumber { get; set; }
 
     public void Call(uint phoneNumber)
     {
@@ -64,7 +49,7 @@ namespace PhoneShop
         return;
       }
 
-      if (string.IsNullOrEmpty(simNumber)) 
+      if (string.IsNullOrEmpty(this.SimNumber))
         throw new Exception("Emergency calls only...");
   
       this.Connect();
@@ -73,7 +58,7 @@ namespace PhoneShop
 
     public void Call(string name)
     {
-      if (!this.book.TryGetValue(name, out uint number)) 
+      if (!this.book.TryGetValue(name, out uint number))
         throw new Exception($"I don't find phone by {name} in phone book");
 
       this.Call(number);
@@ -82,6 +67,16 @@ namespace PhoneShop
     public virtual void Connect()
     {
       Console.WriteLine("Connect to gsm station...");
+    }
+
+    public void AddToBook(string name, uint phoneNumber)
+    {
+      this.book.Add(name, phoneNumber);
+    }
+
+    public void RemoveFromBook(string name)
+    {
+      this.book.Remove(name);
     }
 
     #endregion
@@ -93,9 +88,7 @@ namespace PhoneShop
     /// </summary>
     public Phone()
     {
-      this.imei = $"some_imei_{Guid.NewGuid()}";
-      this.simNumber = $"some_sim_{Guid.NewGuid()}";
-      this.book.Add("Jane", 673490);
+      this.Imei = $"some_imei_{Guid.NewGuid()}";
     }
     
     #endregion

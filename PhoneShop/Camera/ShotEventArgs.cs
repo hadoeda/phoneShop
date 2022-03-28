@@ -16,12 +16,7 @@ namespace PhoneShop
     /// <summary>
     /// Изображение.
     /// </summary>
-    private readonly byte[] image;
-
-    /// <summary>
-    /// Изображение.
-    /// </summary>
-    public byte[] Image => image;
+    public byte[] Image { get; }
 
     #endregion
 
@@ -33,7 +28,7 @@ namespace PhoneShop
     /// <param name="image">Изображение.</param>
     public ShotEventArgs(byte[] image)
     {
-      this.image = image;
+      this.Image = image;
     }
 
     #endregion
