@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneShop
 {
   /// <summary>
-  /// Данные снимка.
+  /// Аргумент события "Снимок сделан".
   /// </summary>
-  internal sealed class ShotEventArgs: EventArgs
+  internal sealed class ShotEventArgs : EventArgs
   {
     #region Поля и свойства
-    
+
     /// <summary>
     /// Изображение.
     /// </summary>

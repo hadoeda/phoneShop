@@ -54,11 +54,13 @@ namespace PhoneShop
           camPhone.GetPhoto();
         }
       }
-      catch(Exception e)
+      catch (Exception ex)
       {
-        Console.WriteLine("Error: {0}", e.Message);
+        Console.WriteLine("Error: {0}", ex.Message);
       }
+
     }
+
 
     /// <summary>
     /// Инициализация для теста

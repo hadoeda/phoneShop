@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneShop
 {
@@ -14,10 +10,10 @@ namespace PhoneShop
     #region ICamera
 
     public event EventHandler<ShotEventArgs> ShotCompleted;
-    
+
     public void Shot()
     {
-      OnShotCompleted(new ShotEventArgs(Array.Empty<byte>()));
+      this.OnShotCompleted(new ShotEventArgs(Array.Empty<byte>()));
     }
 
     #endregion
@@ -31,7 +27,7 @@ namespace PhoneShop
     public void OnShotCompleted(ShotEventArgs args)
     {
       if (ShotCompleted != null)
-        ShotCompleted(this, args);
+        this.ShotCompleted(this, args);
     }
 
     #endregion

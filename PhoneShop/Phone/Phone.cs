@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneShop
 {
@@ -17,7 +14,7 @@ namespace PhoneShop
     /// Номер службы спасения в Европе.
     /// </summary>
     public const uint EuEmergencyNumber = 112;
-    
+
     /// <summary>
     /// Номер службы спасения в США.
     /// </summary>
@@ -26,12 +23,12 @@ namespace PhoneShop
     #endregion
 
     #region Поля и свойства
-    
+
     /// <summary>
     /// Адресная книга.
     /// </summary>
     private readonly Dictionary<string, uint> book = new();
-    
+
     #endregion
 
     #region IPhone
@@ -42,7 +39,7 @@ namespace PhoneShop
 
     public void Call(uint phoneNumber)
     {
-      if(phoneNumber == EuEmergencyNumber || phoneNumber == UsEmergencyNumber)
+      if (phoneNumber == EuEmergencyNumber || phoneNumber == UsEmergencyNumber)
       {
         this.Connect();
         Console.WriteLine("Emergency call {0}", phoneNumber);
@@ -51,7 +48,7 @@ namespace PhoneShop
 
       if (string.IsNullOrEmpty(this.SimNumber))
         throw new Exception("Emergency calls only...");
-  
+
       this.Connect();
       Console.WriteLine("Call to phone number {0}", phoneNumber);
     }
@@ -90,7 +87,7 @@ namespace PhoneShop
     {
       this.Imei = $"some_imei_{Guid.NewGuid()}";
     }
-    
+
     #endregion
   }
 }
