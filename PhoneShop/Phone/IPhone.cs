@@ -3,7 +3,7 @@
 namespace PhoneShop
 {
   /// <summary>
-  /// Интерфейс описывающий телефон.
+  /// Телефон.
   /// </summary>
   internal interface IPhone
   {
@@ -21,15 +21,15 @@ namespace PhoneShop
     /// Вызов по имени в адресной книге.
     /// </summary>
     /// <param name="name">Имя абонента из адресной книги.</param>
-    /// <exception cref="Exception">нет сим карты и вызываемый номер не номер службы спасения</exception>
-    /// <exception cref="Exception">номер не найден в адресной книге</exception>
+    /// <exception cref="Exception">Нет сим карты и вызываемый номер не номер службы спасения.</exception>
+    /// <exception cref="ArgumentException">Номер не найден в адресной книге.</exception>
     void Call(string name);
 
     /// <summary>
     /// Вызов номера.
     /// </summary>
     /// <param name="phoneNumber">Номер телефона.</param>
-    /// <exception cref="Exception">нет сим карты и вызываемый номер не номер службы спасения</exception>
+    /// <exception cref="Exception">Нет сим карты и вызываемый номер не номер службы спасения.</exception>
     void Call(uint phoneNumber);
 
     /// <summary>

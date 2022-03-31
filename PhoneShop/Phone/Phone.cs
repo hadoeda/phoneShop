@@ -56,7 +56,7 @@ namespace PhoneShop
     public void Call(string name)
     {
       if (!this.book.TryGetValue(name, out uint number))
-        throw new Exception($"I don't find phone by {name} in phone book");
+        throw new ArgumentException($"Number not found in phone book", nameof(name));
 
       this.Call(number);
     }
